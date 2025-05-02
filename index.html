@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <title>Portfolio</title>
+</head>
+
+<body>
+    <header class="container">
+        <div class="page-header">
+            <div class="logo">
+                <a href="#aboutme">Haxovica.</a>
+            </div>
+            <input type="checkbox" id="click">
+
+            <label for="click" class="mainicon">
+                <div class="menu">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </label>
+            <ul>
+                <li><a href="#aboutme" class="active">Tentang Saya</a></li>
+                <li><a href="#karya">Lihat Karya</a></li>
+                <li><a href="#hubungi">Hubungi</a></li>
+            </ul>
+            <label class="mode">
+                <input type="checkbox" id="darkModeToggle">
+                <i class='bx bxs-moon'></i>
+                <i class='bx bxs-sun'></i>
+            </label>
+        </div>
+    </header>
+
+    <!-- Tentang Saya Section -->
+    <section id="aboutme" class="container">
+        <div class="main">
+            <div class="detail">
+                <h3>Hi, It's Me</h3>
+                <h1>I'm <span style="color:#f9532d;">Hashfi</span></h1>
+                <h2>Motion Designer & Founder of Haxovica Studios.</h2>
+                <p>Saya adalah salah satu pendiri dari Haxovica Studios.
+                    Sebuah studio kreatif digital yang menyediakan layanan animasi logo, 
+                    desain banner, serta berbagai kebutuhan branding.</p>
+                <div class="social">
+                    <a href="#"><i class='bx bxl-discord'></i></a>
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                    <a href="#"><i class='bx bxl-github'></i></a>
+                </div>
+            </div>
+            <div class="img-sec">
+                <div class="images">
+                    <img src="foto profil.png" alt="" class="img-w">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lihat Karya Section -->
+    <section id="karya" class="container karya-section">
+        <div class="main">
+            <div class="detail">
+                <h3>Portofolio Saya</h3>
+                <h1>Karya Terbaik <span style="color:#f9532d;">Haxovica</span></h1>
+                <h2>Berikut adalah beberapa karya yang telah saya buat.</h2>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="karya1.png" alt="Karya 1">
+                        <p>Desain Logo Kreatif</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="karya2.png" alt="Karya 2">
+                        <p>Animasi Banner</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="karya3.png" alt="Karya 3">
+                        <p>Branding Kit</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hubungi Section -->
+    <section id="hubungi" class="container hubungi-section">
+        <div class="main">
+            <div class="detail">
+                <h3>Hubungi Saya</h3>
+                <h1>Let's <span style="color:#f9532d;">Connect</span></h1>
+                <h2>Saya siap membantu Anda!</h2>
+                <form action="#" method="POST" class="contact-form">
+                    <input type="text" name="name" placeholder="Nama Anda" required>
+                    <input type="email" name="email" placeholder="Email Anda" required>
+                    <textarea name="message" placeholder="Pesan Anda" rows="5" required></textarea>
+                    <button type="submit" class="btn">Kirim Pesan</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-content">
+        <p>&copy; 2025 Haxovica Studios. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        // Cek status dark mode dari localStorage
+        const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+        if (isDarkMode) {
+            body.classList.add('dark-mode');
+            darkModeToggle.checked = true;
+        }
+
+        // Event listener untuk mengubah mode
+        darkModeToggle.addEventListener('change', () => {
+            if (darkModeToggle.checked) {
+                body.classList.add('dark-mode');
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                body.classList.remove('dark-mode');
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+    </script>
+</body>
+</html>
