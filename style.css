@@ -346,6 +346,16 @@ li a:hover {
     display: none;
 }
 
+.dark-mode li a {
+    color: #ffffff; /* Warna teks default pada mode gelap */
+}
+
+.dark-mode li a.active, li a:hover {
+    color: var(--primary-color); /* Warna teks saat hover */
+    border-radius: 36px; /* Tambahkan efek melengkung */
+    transition: all 0.3s ease; /* Tambahkan transisi untuk efek halus */
+}
+
 section::after {
     content: "";
     display: block;
