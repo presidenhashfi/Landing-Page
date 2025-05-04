@@ -321,7 +321,7 @@ section {
     padding: 2rem; /* Tambahkan padding untuk konten */
     box-sizing: border-box; /* Pastikan padding tidak memengaruhi ukuran */
     flex-direction: column;
-    scroll-snap-align: start; /* Untuk efek scroll snapping */
+    scroll-snap-align: none; /* Untuk efek scroll snapping */
 }
 
 html {
@@ -329,10 +329,11 @@ html {
 }
 
 html, body { /* Scroll snapping secara vertikal */
-
+    overflow-x: hidden; /* Hindari scroll horizontal */
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
+    scroll-snap-type: y mandatory; /* Aktifkan scroll snapping */
 }
 
 
