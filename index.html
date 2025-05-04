@@ -10,34 +10,32 @@
     <title>Portfolio</title>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-        const sections = document.querySelectorAll("section");
-        const navLinks = document.querySelectorAll("header ul li a");
+      document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("header ul li a");
 
-        window.addEventListener("scroll", () => {
-            let current = "";
+    window.addEventListener("scroll", () => {
+        let current = "";
 
-            sections.forEach((section) => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                const scrollPosition = window.scrollY + window.innerHeight;
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
 
-                // Periksa apakah bagian terakhir terlihat
-                if (scrollPosition >= document.body.scrollHeight) {
-                    current = "hubungi";
-                } else if (window.scrollY >= sectionTop - sectionHeight / 3) {
-                    current = section.getAttribute("id");
-                }
-            });
+            // Periksa apakah posisi scroll berada di dalam section
+            if (window.scrollY >= sectionTop - sectionHeight / 3 &&
+                window.scrollY < sectionTop + sectionHeight - sectionHeight / 3) {
+                current = section.getAttribute("id");
+            }
+        });
 
-            navLinks.forEach((link) => {
-                link.classList.remove("active");
-                if (link.getAttribute("href").includes(current)) {
-                    link.classList.add("active");
-                }
-            });
+        navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href").includes(current)) {
+                link.classList.add("active");
+            }
         });
     });
+});
     </script>
 </head>
 
@@ -56,8 +54,8 @@
             </label>
             <ul>
                 <li><a href="#aboutme" class="active">Tentang Saya</a></li>
+                <li><a href="#tentanghaxovica">Tentang Haxovica</a></li>
                 <li><a href="#karya">Lihat Karya</a></li>
-                <li><a href="tentanghaxovica">Tentang Haxovica</a></li>
                 <li><a href="#hubungi">Hubungi</a></li>
             </ul>
             <label class="mode">
@@ -72,8 +70,8 @@
     <section id="aboutme" class="container">
         <div class="main">
             <div class="detail">
-                <h3>Hi, It's Me</h3>
-                <h1>I'm <span style="color:#f9532d;">Hashfi</span></h1>
+                <h3>Halo!</h3>
+                <h1>Saya <span style="color:#f9532d;">Hashfi</span></h1>
                 <h2>Motion Designer & Founder of Haxovica Studios.</h2>
                 <p>Saya adalah salah satu pendiri dari Haxovica Studios.
                     Sebuah studio kreatif digital yang menyediakan layanan animasi logo, 
@@ -99,6 +97,11 @@
                 <h1>Kenali <span style="color:#f9532d;">Haxovica</span></h1>
                 <p>Haxovica Studios adalah studio kreatif digital yang berfokus pada desain animasi, branding, dan solusi kreatif lainnya. Kami berdedikasi untuk memberikan hasil terbaik kepada klien kami.</p>
             </div>
+            <div class="img-sec">
+                <div class="images">
+                    <img src="Logo Haxovica 1.png" alt="Logo Haxovica" class="img-w">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -111,15 +114,15 @@
                 <h2>Berikut adalah beberapa karya yang telah saya buat.</h2>
                 <div class="gallery">
                     <div class="gallery-item">
-                        <img src="karya1.png" alt="Karya 1">
-                        <p>Desain Logo Kreatif</p>
+                        <img src="Portofolio Logo Midoriya .jpg" alt="Karya 1">
+                        <p>Animasi Logo</p>
                     </div>
                     <div class="gallery-item">
-                        <img src="karya2.png" alt="Karya 2">
+                        <img src="Final Booster Server.gif" alt="Karya 2">
                         <p>Animasi Banner</p>
                     </div>
                     <div class="gallery-item">
-                        <img src="karya3.png" alt="Karya 3">
+                        <img src="Mockup WEB.png" alt="Karya 3">
                         <p>Branding Kit</p>
                     </div>
                 </div>
