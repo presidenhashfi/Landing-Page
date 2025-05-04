@@ -47,6 +47,7 @@ header {
     box-shadow: 0 4px 17px rgba(0, 0, 0, 0.1);
     padding: 0.8rem 2rem; /* Tambahkan padding vertikal dan horizontal */
     box-sizing: border-box;
+    transition: all 0.3s ease;
 }
 
 .page-header {
@@ -54,6 +55,47 @@ header {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+}
+
+header.scrolled {
+    background-color: var(--primary-dark); /* Ubah warna latar belakang saat di-scroll */
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.3); /* Ubah bayangan saat di-scroll */ 
+}
+
+/* Warna teks default */
+header.logo a {
+    color: var(--secondary-color); /* Warna teks default */
+    transition: color 0.3s ease;
+}
+
+/* Warna teks saat di-scroll */
+header.scrolled .logo a {
+    color: white; /* Warna teks berubah menjadi putih */
+}
+
+header.scrolled .menu {
+    color: white; /* Ubah warna ikon menu saat di-scroll */
+}
+
+header.scrolled .menu:hover {
+    color: var(--primary-color); /* Ubah warna ikon menu saat hover */
+}
+
+header.scrolled 
+li a {
+    color: white
+}
+
+header.scrolled li a.active,li a:hover {
+    color: var(--primary-color); /* Ubah warna teks saat hover */
+}
+
+header.scrolled .mode {
+    background-color: #1b1f27; /* Ubah warna tombol mode saat di-scroll */
+}
+
+header.scrolled .mode i {
+    color:white /* Ubah warna ikon saat di-scroll */
 }
 
 .logo {
@@ -85,7 +127,6 @@ ul {
     margin-left: auto;
     padding: 1rem 0;
     z-index: 999; 
-    transition:l left 0.3s ease;
     flex-direction: row;
 }
 
@@ -128,11 +169,11 @@ li a:hover {
     position: relative;
     width: 60px;
     height: 30px;
-    background-color: var(--primary-dark);
+    background-color:white;
     border-radius: 50px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 4), inset 0 0 10px rgba(255, 255, 255, 0.2);
     cursor: pointer;
     transition: background-color 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     z-index: 5; /* Pastikan tombol mode berada di atas elemen lain */
 }
 
@@ -140,7 +181,7 @@ li a:hover {
 .mode i {
     position: absolute;
     font-size: 1.2rem;
-    color: #fff;
+    color: var(--secondary-color);
     transition: transform 0.3s ease, opacity 0.3s ease;
     z-index: 5; /* Pastikan ikon berada di atas elemen lain */
     pointer-events: none;
@@ -274,7 +315,6 @@ li a:hover {
 
 #tentanghaxovica .detail {
     flex: 2; /* Teks mengambil 2 bagian dari ruang */
-    color:#244D61
 }
 
 #tentanghaxovica .images {
@@ -316,7 +356,7 @@ li a:hover {
 
 .service-item p {
     font-size: 1rem;
-    color: #244D61;
+    color: black;
     margin: 0;
 }
 
@@ -339,7 +379,7 @@ li a:hover {
 }
 
 .dark-mode #tentanghaxovica .img-w {
-    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1); /* Ubah bayangan */
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.1); /* Ubah bayangan */
 }
 
 .mode input {
@@ -354,6 +394,14 @@ li a:hover {
     color: var(--primary-color); /* Warna teks saat hover */
     border-radius: 36px; /* Tambahkan efek melengkung */
     transition: all 0.3s ease; /* Tambahkan transisi untuk efek halus */
+}
+
+.dark-mode header.scrolled .menu {
+    color: var(--primary-color); /* Ubah warna menu menjadi oranye */
+}
+
+.dark-mode header.scrolled .bxs-moon {
+    color: var(--primary-color); /* Ubah warna bulan menjadi oranye */
 }
 
 section::after {
@@ -421,14 +469,21 @@ html, body { /* Scroll snapping secara vertikal */
     }
     
     .mode {
-        background-color: var(--primary-color);
-        box-shadow: 0 4px 10px rgba(249, 83, 45, 0.5); /* Tambahkan efek bayangan */    
+        background-color: var(--primary-dark);
+    }
+
+    .bxs-moon {
+        color: var(--primary-color);
+    }
+
+    .menu header.scrolled {
+        background-color: var(--primary-dark); /* Ubah warna latar belakang saat di-scroll */
+        box-shadow: 0 4px 17px rgba(0, 0, 0, 0.3); /* Ubah bayangan saat di-scroll */ 
     }
 
     .menu:hover {
         color: white;
     }
-
     .gallery-item p{
         color: #fff; /* Ubah warna teks menjadi putih */
     }
@@ -665,7 +720,7 @@ html, body { /* Scroll snapping secara vertikal */
 .gallery-item p {
     margin-top: 0.5rem;
     font-size: 1rem;
-    color: var(--secondary-color);
+    color: black;
 }
 
 /* Hubungi Css */
@@ -708,6 +763,6 @@ html, body { /* Scroll snapping secara vertikal */
     text-align: center;
     padding: 2rem 1rem;
     margin-top: 3rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0;
 
 }
