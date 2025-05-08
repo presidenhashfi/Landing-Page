@@ -8,42 +8,40 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
     <title>Portfolio</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <script>
-    window.addEventListener("scroll", () => {
-    const header = document.querySelector("header");
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll("header ul li a");
-    let current = "";
+        window.addEventListener("scroll", () => {
+            const header = document.querySelector("header");
+            const sections = document.querySelectorAll("section");
+            const navLinks = document.querySelectorAll("header ul li a");
+            let current = "";
 
-    // Tambahkan kelas 'scrolled' ke header
-    if (window.scrollY > 50) {
-        header.classList.add("scrolled");
-    } else {
-        header.classList.remove("scrolled");
-    }
+            if (window.scrollY > 50) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
 
-    // Periksa posisi scroll untuk navigasi aktif
-    sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
 
-        if (
-            window.scrollY >= sectionTop - sectionHeight / 3 &&
-            window.scrollY < sectionTop + sectionHeight - sectionHeight / 3
-        ) {
-            current = section.getAttribute("id");
-        }
-    });
+                if (
+                    window.scrollY >= sectionTop - sectionHeight / 3 &&
+                    window.scrollY < sectionTop + sectionHeight - sectionHeight / 3
+                ) {
+                    current = section.getAttribute("id");
+                }
+            });
 
-    // Tambahkan kelas 'active' ke navigasi yang sesuai
-    navLinks.forEach((link) => {
-        link.classList.remove("active");
-        if (link.getAttribute("href").includes(current)) {
-            link.classList.add("active");
-        }
-    });
-});
+            navLinks.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("href").includes(current)) {
+                    link.classList.add("active");
+                }
+            });
+        });
     </script>
 </head>
 
@@ -74,8 +72,7 @@
         </div>
     </header>
 
-    <!-- Tentang Saya Section -->
-    <section id="aboutme" class="container">
+    <section id="aboutme" class="container" data-aos="slide-down">
         <div class="main">
             <div class="detail">
                 <h3>Halo!</h3>
@@ -98,7 +95,7 @@
         </div>
     </section>
 
-    <section id="tentanghaxovica" class="container">
+    <section id="tentanghaxovica" class="container" data-aos="slide-right">
         <div class="main">
             <div class="detail">
                 <h3>Tentang Haxovica</h3>
@@ -136,8 +133,7 @@
         </div>
     </section>
 
-    <!-- Lihat Karya Section -->
-    <section id="karya" class="container karya-section">
+    <section id="karya" class="container karya-section" data-aos="slide-left">
         <div class="main">
             <div class="detail">
                 <h3>Portofolio Saya</h3>
@@ -161,19 +157,47 @@
         </div>
     </section>
 
-    <!-- Hubungi Section -->
     <section id="hubungi" class="container hubungi-section">
         <div class="main">
             <div class="detail">
-                <h3>Hubungi Saya</h3>
+    
                 <h1>Let's <span style="color:#f9532d;">Connect</span></h1>
-                <h4>Ingin berdiskusi proyek atau butuh penawaran harga? Kirimkan pesan Anda di bawah ini dan saya akan segera menghubungi Anda.</h4>
-                <form action="#" method="POST" class="contact-form">
-                    <input type="text" name="name" placeholder="Nama Anda" required>
-                    <input type="email" name="email" placeholder="Email Anda" required>
-                    <textarea name="message" placeholder="Pesan Anda" rows="5" required></textarea>
-                    <button type="submit" class="btn">Kirim Pesan</button>
-                </form>
+                <p>Anda dapat menghubungi saya melalui formulir di bawah ini:</p>
+                <form action="contact.php" method="POST" class="contact-form">
+    <div class="input-container">
+        <i class="bx bx-user"></i>
+        <input type="text" name="name" placeholder="Masukkan nama lengkap Anda" required>
+    </div>
+    <div class="input-container">
+        <i class="bx bx-envelope"></i>
+        <input type="email" name="email" placeholder="Masukkan alamat email Anda" required>
+    </div>
+    <div class="input-container">
+        <textarea name="message" placeholder="Tulis pesan Anda di sini..." required></textarea>
+    </div>
+    <button type="submit">Kirim Pesan</button>
+</form>
+                <p>Anda dapat menghubungi saya melalui salah satu alternatif kontak di bawah ini:</p>
+                <div class="alternative-contact">
+                    <ul>
+                        <li>
+                            <i class='bx bxl-whatsapp'></i>
+                            <strong>WhatsApp:</strong> 
+                            <a href="https://wa.me/6281234567890" target="_blank">+62 812-3456-7890</a>
+                        </li>
+                        <li>
+                            <i class='bx bxl-gmail'></i>
+                            <strong>Email:</strong> 
+                            <a href="mailto:haxovicastudios@gmail.com">haxovicastudios@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class='bx bxl-discord'></i>
+                            <strong>Discord:</strong> 
+                            <a href="https://discord.gg/eFPtBz3eZW" target="_blank">Haxovica Studios</a>
+                        </li>
+                    </ul>
+                    <p>Untuk diskusi lebih lanjut, kami sarankan Anda bergabung dengan <a href="https://discord.gg/eFPtBz3eZW" target="_blank">Discord Haxovica Studios</a>.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -181,19 +205,21 @@
     <!-- Footer -->
     <footer class="footer-content">
         <p>&copy; 2025 Haxovica Studios. All Rights Reserved.</p>
+        <div class="social">
+            <a href="https://discord.gg/eFPtBz3eZW"><i class='bx bxl-discord'></i></a>
+            <a href="#"><i class='bx bxl-instagram'></i></a>
+            <a href="https://github.com/presidenhashfi"><i class='bx bxl-github'></i></a>
+        </div>
     </footer>
 
     <script>
         const darkModeToggle = document.getElementById("darkModeToggle");
         const body = document.body;
 
-        // Cek status dark mode dari localStorage
         if (localStorage.getItem("darkMode") === "enabled") {
             body.classList.add("dark-mode");
             darkModeToggle.checked = true;
         }
-
-        // Event listener untuk mengubah mode
         darkModeToggle.addEventListener("change", () => {
             if (darkModeToggle.checked) {
                 body.classList.add("dark-mode");
@@ -204,5 +230,15 @@
             }
         });
     </script>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 500, 
+            once: false, 
+            offset: 100, 
+        });
+    </script>
+
 </body>
 </html>

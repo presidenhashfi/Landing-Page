@@ -12,6 +12,35 @@
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
+    transition: all 0.3s ease;
+}
+
+[data-aos] {
+    opacity: 0; /* Elemen tersembunyi sebelum animasi */
+    transition-property: opacity, transform;
+    transition-duration: 0.3s; /* Durasi transisi */
+}
+
+[data-aos].aos-animate {
+    opacity: 1; /* Elemen terlihat setelah animasi */
+}
+
+section h1, section p {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+button, a {
+    transition: all 0.3s ease;
+}
+
+button:hover, a:hover, li a:hover, .menu:hover, .service-item:hover, .social a:hover {
+    transform: scale(1.05); /* Tambahkan efek zoom */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan */
+    color: var(--primary-color); /* Ubah warna teks */
+}
+
+button, a, li a, .menu, .service-item, .social a {
+    transition: all 0.3s ease;
 }
 
 body {
@@ -159,6 +188,7 @@ li a:hover {
 .menu:hover {
     color: var(--primary-color);
     cursor: pointer;
+    transform: scale(1.05);
 }
 
 /* Tombol Mode */
@@ -344,8 +374,8 @@ li a:hover {
     padding: 1rem;
     background-color: #f9f9f9;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 10px 10px 10px #1c1e22;
 }
 
 .service-item i {
@@ -402,6 +432,10 @@ li a:hover {
 
 .dark-mode header.scrolled .bxs-moon {
     color: var(--primary-color); /* Ubah warna bulan menjadi oranye */
+}
+
+.dark-mode header.scrolled .menu:hover {
+    color : white;
 }
 
 section::after {
@@ -484,6 +518,7 @@ html, body { /* Scroll snapping secara vertikal */
     .menu:hover {
         color: white;
     }
+    
     .gallery-item p{
         color: #fff; /* Ubah warna teks menjadi putih */
     }
@@ -495,7 +530,49 @@ html, body { /* Scroll snapping secara vertikal */
     li a:hover {
         color: var(--primary-color); /* Ubah warna teks saat hover */
     }
+
+    .footer-content .social a{
+        color: var(--primary-color);
+        border: 1.6px solid var(--primary-color);
+    }
+
+    .footer-content .social a:hover {
+        color: var(--primary-dark);
+        background-color: var(--primary-color);
+        box-shadow: 0 0 20px var(--primary-color);
+    }
+    .alternative-contact {
+        background: linear-gradient(145deg, #1f252e, #2e3239);
+        box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #1b1f27;
+        transition: all 0.3s ease;
+    }
+
+    .hubungi-section h1 {
+        font-size: 2.5rem;
+        color: white;
+        margin-bottom: 1rem;
+    }
     
+    .hubungi-section p {
+        font-size: 1rem;
+        color: white;
+        margin-bottom: 2rem;
+    }
+
+    .alternative-contact p a {
+        color: var(--primary-color); /* Ubah warna tautan menjadi oranye */
+    }
+
+    .alternative-contact ul li {
+        color: #fff; /* Ubah warna teks menjadi putih */
+        transition: all 0.3s ease;
+    }
+    
+    .service-item {
+        background:white;
+        box-shadow: 10px 30px 19px #1c1e22, -10px -10px 19px #1b1f27;
+        transition: all 0.3s ease;
+    }
 }
 
 .dark-mode header {
@@ -724,35 +801,165 @@ html, body { /* Scroll snapping secara vertikal */
 }
 
 /* Hubungi Css */
-.contact-form {
+
+/* Section Hubungi */
+.hubungi-section {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    align-items: center; /* Pusatkan elemen secara horizontal */
+    justify-content: center; /* Pusatkan elemen secara vertikal */
+    text-align: center; /* Pusatkan teks */
+    height: 100vh; /* Tinggi section sesuai dengan tinggi layar */
+    padding: 2rem; /* Tambahkan padding untuk ruang */
+    box-sizing: border-box; /* Pastikan padding tidak memengaruhi ukuran */
+}
+
+.hubungi-section h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.hubungi-section p {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+}
+
+.hubungi-section .contact-form {
+    max-width: 600px; /* Batasi lebar formulir */
+    width: 100%;
+}
+
+.hubungi-section .alternative-contact {
+    width: 100%;
+    text-align: center;
     margin-top: 2rem;
 }
 
-.contact-form input,
-.contact-form textarea {
+
+/* Formulir Kontak */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Kurangi jarak antar elemen */
+    margin-top: 1.5rem;
+    padding: 1.5rem; /* Kurangi padding */
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px; /* Batasi lebar formulir */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-container i {
+    position: absolute;
+    left: 1rem;
+    font-size: 1.2rem; /* Perkecil ukuran ikon */
+    color: var(--primary-color);
+}
+
+.input-container input,
+.input-container textarea {
     width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
+    padding: 0.8rem 1rem 0.8rem 2.5rem; /* Kurangi padding dan sesuaikan untuk ikon */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.9rem; /* Perkecil ukuran font */
+    font-family: 'Outfit', Arial, sans-serif;
+    background-color: #fff;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-container textarea {
+    resize: none;
+    height: 120px; /* Kurangi tinggi textarea */
+    padding-left: 1rem; /* Hilangkan ruang untuk ikon */
+    text-indent: 2rem; /* Geser teks placeholder ke kanan */
+    background-repeat: no-repeat;
+    background-position: 0.5rem center; /* Posisikan ikon di samping teks */
+    background-size: 1.2rem; /* Sesuaikan ukuran ikon */
+}
+
+.input-container input:focus,
+.input-container textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(249, 83, 45, 0.2);
+    outline: none;
 }
 
 .contact-form button {
-    padding: 0.8rem;
+    padding: 0.8rem; /* Kurangi padding tombol */
     background-color: var(--primary-color);
     color: #fff;
     border: none;
-    border-radius: 5px;
-    font-size: 1rem;
+    border-radius: 8px;
+    font-size: 1rem; /* Perkecil ukuran font tombol */
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .contact-form button:hover {
     background-color: #e14a1c;
+    transform: scale(1.05);
+}
+
+.contact-form button:active {
+    transform: scale(0.98);
+}
+
+.contact-form input:hover,
+.contact-form textarea:hover {
+    border-color: #bbb;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Alternative Contact Section */
+.alternative-contact {
+    margin-top: 1.5rem; /* Kurangi jarak atas */
+    padding: 1rem; /* Kurangi padding */
+    background-color: #f9f9f9;
+    border-radius: 6px; /* Kurangi radius sudut */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Kurangi bayangan */
+}
+
+.alternative-contact ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.alternative-contact ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem; /* Kurangi jarak antar item */
+    font-size: 0.9rem; /* Perkecil ukuran font */
+}
+
+.alternative-contact ul li i {
+    font-size: 1.2rem; /* Perkecil ukuran ikon */
+    color: var(--primary-color);
+    margin-right: 0.4rem; /* Kurangi jarak ikon dengan teks */
+}
+
+.alternative-contact ul li a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.9rem; /* Perkecil ukuran font tautan */
+    margin-left: 0.4rem; /* Kurangi jarak tautan dengan teks */
+}
+
+.alternative-contact ul li a:hover {
+    text-decoration: underline;
 }
 
 /* Footer */
@@ -763,6 +970,25 @@ html, body { /* Scroll snapping secara vertikal */
     text-align: center;
     padding: 2rem 1rem;
     margin-top: 3rem;
-    margin-bottom: 0;
+}
 
+.footer-content .social {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.footer-content .social a {
+    color: #ffffff;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    border: 1.6px solid #ffffff;
+}
+
+.footer-content .social a:hover {
+    color: var(--primary-dark);
+    background-color: #ffffff;
+    box-shadow: 0 0 20px #ffffff;
 }
